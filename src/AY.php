@@ -580,6 +580,7 @@ class AY
     /**
      * @param integer[] $ids
      * @param string[] $fields
+     * @param boolean $loadStyles
      *
      * @return ProductsResult
      *
@@ -591,9 +592,6 @@ class AY
         array $fields = [],
         $loadStyles = true
     ) {
-        // we allow to pass a single ID instead of an array
-        settype($ids, 'array');
-
         $query = $this->getQuery()
             ->fetchProductsByIds($ids, $fields, $loadStyles)
         ;
@@ -620,9 +618,6 @@ class AY
         array $fields = [],
         $loadStyles = true
     ) {
-        // we allow to pass a single ID instead of an array
-        settype($keys, 'array');
-
         $query = $this->getQuery()
             ->fetchProductsByStyleKeys($keys, $fields, $loadStyles)
         ;
@@ -655,9 +650,6 @@ class AY
         $includeInactive = true,
         $searchInactive = false
     ) {
-        // we allow to pass a single ID instead of an array
-        settype($ids, 'array');
-
         $query = $this->getQuery()
             ->fetchLiveVariantByIds($ids, $includeInactive, $searchInactive)
         ;
@@ -685,9 +677,6 @@ class AY
         array $eans,
         array $fields = []
     ) {
-        // we allow to pass a single ID instead of an array
-        settype($eans, 'array');
-
         $query = $this->getQuery()
             ->fetchProductsByEans($eans, $fields)
         ;
